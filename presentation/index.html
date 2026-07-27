@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pa'Hoy — Talento Local, Pa' Hoy Mismo</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/black.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    :root {
+      --pahoy-primary: #FF6B35;
+      --pahoy-secondary: #004E89;
+      --pahoy-accent: #FCBF49;
+      --pahoy-dark: #1a1a2e;
+      --pahoy-light: #f8f9fa;
+    }
+
+    .reveal {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    }
+
+    .reveal .slides section {
+      text-align: left;
+    }
+
+    .reveal h1, .reveal h2, .reveal h3 {
+      color: var(--pahoy-primary);
+      font-weight: 700;
+      text-transform: none;
+    }
+
+    .reveal h1 {
+      font-size: 2.5em;
+    }
+
+    .reveal h2 {
+      font-size: 1.8em;
+      border-bottom: 3px solid var(--pahoy-accent);
+      padding-bottom: 0.3em;
+      margin-bottom: 0.6em;
+    }
+
+    .reveal h3 {
+      font-size: 1.3em;
+      color: var(--pahoy-accent);
+    }
+
+    .reveal p, .reveal li {
+      font-size: 0.75em;
+      line-height: 1.6;
+      color: var(--pahoy-light);
+    }
+
+    .reveal ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .reveal ul li::before {
+      content: "▸ ";
+      color: var(--pahoy-accent);
+      font-weight: bold;
+    }
+
+    .slide-title {
+      text-align: center !important;
+    }
+
+    .slide-title h1 {
+      font-size: 3em;
+      margin-bottom: 0.2em;
+    }
+
+    .slide-title .subtitle {
+      font-size: 1.1em;
+      color: var(--pahoy-accent);
+      font-style: italic;
+    }
+
+    .two-columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2em;
+      align-items: start;
+    }
+
+    .three-columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1.5em;
+      align-items: start;
+    }
+
+    .card {
+      background: rgba(255, 107, 53, 0.08);
+      border: 1px solid rgba(255, 107, 53, 0.3);
+      border-radius: 12px;
+      padding: 1.2em;
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      font-size: 1em;
+    }
+
+    .card p, .card li {
+      font-size: 0.65em;
+    }
+
+    .highlight-box {
+      background: linear-gradient(135deg, rgba(255, 107, 53, 0.15), rgba(252, 191, 73, 0.1));
+      border-left: 4px solid var(--pahoy-primary);
+      padding: 1em 1.5em;
+      border-radius: 0 8px 8px 0;
+      margin: 0.8em 0;
+    }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1em;
+      text-align: center;
+    }
+
+    .stat-item {
+      background: rgba(0, 78, 137, 0.2);
+      border-radius: 12px;
+      padding: 1em 0.5em;
+    }
+
+    .stat-item .number {
+      font-size: 2em;
+      font-weight: 700;
+      color: var(--pahoy-accent);
+      display: block;
+    }
+
+    .stat-item .label {
+      font-size: 0.6em;
+      color: var(--pahoy-light);
+      opacity: 0.8;
+    }
+
+    .tech-badge {
+      display: inline-block;
+      background: rgba(0, 78, 137, 0.3);
+      border: 1px solid rgba(0, 78, 137, 0.5);
+      border-radius: 20px;
+      padding: 0.3em 0.8em;
+      margin: 0.2em;
+      font-size: 0.6em;
+      color: var(--pahoy-light);
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1em;
+      text-align: center;
+    }
+
+    .team-member {
+      background: rgba(255, 107, 53, 0.08);
+      border-radius: 12px;
+      padding: 1em 0.5em;
+      border: 1px solid rgba(255, 107, 53, 0.2);
+    }
+
+    .team-member .name {
+      font-size: 0.7em;
+      font-weight: 700;
+      color: var(--pahoy-primary);
+      display: block;
+      margin-bottom: 0.3em;
+    }
+
+    .team-member .role {
+      font-size: 0.55em;
+      color: var(--pahoy-light);
+      opacity: 0.8;
+    }
+
+    .comparison-table {
+      width: 100%;
+      font-size: 0.6em;
+      border-collapse: collapse;
+    }
+
+    .comparison-table th {
+      background: rgba(255, 107, 53, 0.2);
+      color: var(--pahoy-primary);
+      padding: 0.6em;
+      text-align: left;
+    }
+
+    .comparison-table td {
+      padding: 0.5em 0.6em;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      color: var(--pahoy-light);
+    }
+
+    .comparison-table tr:hover td {
+      background: rgba(255, 107, 53, 0.05);
+    }
+
+    .icon-feature {
+      font-size: 1.5em;
+      color: var(--pahoy-accent);
+      margin-bottom: 0.3em;
+      display: block;
+    }
+
+    .architecture-diagram {
+      font-size: 0.45em;
+      line-height: 1.3;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 1em;
+      border-radius: 8px;
+      text-align: center;
+      font-family: 'Courier New', monospace;
+      color: var(--pahoy-accent);
+    }
+
+    .links-section a {
+      color: var(--pahoy-accent);
+      text-decoration: none;
+      font-size: 0.8em;
+      display: inline-block;
+      margin: 0.3em 0.8em;
+      padding: 0.4em 1em;
+      border: 1px solid var(--pahoy-accent);
+      border-radius: 20px;
+      transition: all 0.3s;
+    }
+
+    .links-section a:hover {
+      background: var(--pahoy-accent);
+      color: var(--pahoy-dark);
+    }
+
+    .fragment.grow-in {
+      opacity: 0;
+      transform: scale(0.8);
+      transition: all 0.5s;
+    }
+
+    .fragment.grow-in.visible {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .reveal .slide-number {
+      color: var(--pahoy-accent);
+    }
+
+    .logo-title {
+      width: 150px;
+      margin-bottom: 0.5em;
+    }
+  </style>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+
+  <!-- SLIDE 1: Title -->
+  <section class="slide-title" data-background-gradient="radial-gradient(circle at 30% 50%, rgba(255,107,53,0.15), transparent 60%), radial-gradient(circle at 70% 80%, rgba(0,78,137,0.1), transparent 50%)">
+    <img src="https://pahoy-images-bucket.s3.us-east-1.amazonaws.com/pahoy-logo.png" alt="Pa'Hoy Logo" class="logo-title">
+    <h1>Pa'Hoy</h1>
+    <p class="subtitle">Talento Local, Pa' Hoy Mismo</p>
+    <br>
+    <p style="font-size: 0.7em; opacity: 0.7; text-align: center;">Un marketplace geolocalizado que conecta talento local con clientes<br>reconstruyendo comunidades a traves del intercambio economico</p>
+    <br>
+    <div class="links-section" style="text-align: center;">
+      <a href="https://pahoy.online" target="_blank"><i class="fas fa-globe"></i> Landing</a>
+      <a href="https://app.pahoy.online" target="_blank"><i class="fas fa-mobile-alt"></i> App</a>
+      <a href="https://api.pahoy.online" target="_blank"><i class="fas fa-server"></i> API</a>
+    </div>
+    <p style="font-size: 0.5em; opacity: 0.5; text-align: center; margin-top: 1.5em;">AWS + Kiro Hackathon 2026 &mdash; Equipo AKTon</p>
+  </section>
+
+  <!-- SLIDE 2: The Problem -->
+  <section data-background-gradient="linear-gradient(135deg, #1a1a2e 0%, #16213e 100%)">
+    <h2><i class="fas fa-exclamation-triangle" style="color: var(--pahoy-accent);"></i> El Problema</h2>
+    <p style="font-size: 0.85em; margin-bottom: 1em;">En Latinoamerica, los trabajadores capacitados permanecen <strong style="color: var(--pahoy-primary);">invisibles</strong> para potenciales clientes.</p>
+    <div class="two-columns">
+      <div>
+        <ul>
+          <li class="fragment"><strong>Alta friccion</strong> al contratar desconocidos</li>
+          <li class="fragment"><strong>Sin rendicion de cuentas</strong> ni resenias</li>
+          <li class="fragment"><strong>Exclusion</strong> de adultos mayores y poblaciones vulnerables</li>
+          <li class="fragment"><strong>Comunidades fragmentadas</strong> desconectadas del talento local</li>
+        </ul>
+      </div>
+      <div class="fragment">
+        <div class="highlight-box">
+          <p style="font-size: 0.7em;"><i class="fas fa-quote-left" style="color: var(--pahoy-accent);"></i> El mercado informal (boca a boca, WhatsApp, redes sociales) domina y genera friccion, desconfianza y exclusion.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 3: Our Solution -->
+  <section data-background-gradient="linear-gradient(135deg, #1a1a2e 0%, #16213e 100%)">
+    <h2><i class="fas fa-lightbulb" style="color: var(--pahoy-accent);"></i> Nuestra Solucion</h2>
+    <div class="highlight-box" style="text-align: center;">
+      <p style="font-size: 0.9em; margin: 0;"><strong style="color: var(--pahoy-primary);">Pa'Hoy</strong> es un marketplace confiable basado en ubicacion donde cualquiera puede ofrecer sus habilidades y cualquiera puede encontrarlas cerca.</p>
+    </div>
+    <br>
+    <div class="two-columns">
+      <div>
+        <h3><i class="fas fa-eye"></i> Vision</h3>
+        <p style="font-size: 0.65em;">Ser la plataforma lider de servicios locales, reconocida por reconstruir el tejido social a traves del trabajo honesto y el intercambio economico.</p>
+      </div>
+      <div>
+        <h3><i class="fas fa-bullseye"></i> Mision</h3>
+        <p style="font-size: 0.65em;">Visibilizar el talento de las comunidades, conectarlo con quienes lo necesitan, impulsando el trabajo independiente y priorizando comunidades vulnerables.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 4: What Makes Us Different -->
+  <section data-background-gradient="linear-gradient(135deg, #1a1a2e 0%, #16213e 100%)">
+    <h2><i class="fas fa-star" style="color: var(--pahoy-accent);"></i> Que Nos Diferencia</h2>
+    <table class="comparison-table">
+      <thead>
+        <tr>
+          <th>Caracteristica</th>
+          <th>Pa'Hoy</th>
+          <th>Competidores</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="fragment">
+          <td><strong>Marketplace dual</strong></td>
+          <td>Contrata Y ofrece desde una cuenta</td>
+          <td>Generalmente unidireccional</td>
+        </tr>
+        <tr class="fragment">
+          <td><strong>Geolocalizacion</strong></td>
+          <td>PostGIS, radio 5km por defecto</td>
+          <td>Listados a nivel ciudad</td>
+        </tr>
+        <tr class="fragment">
+          <td><strong>UX inclusiva</strong></td>
+          <td>Disenada para adultos mayores</td>
+          <td>Interfaces complejas</td>
+        </tr>
+        <tr class="fragment">
+          <td><strong>Validacion social</strong></td>
+          <td>Resenias de la comunidad</td>
+          <td>Controladas por plataforma</td>
+        </tr>
+        <tr class="fragment">
+          <td><strong>Economia circular</strong></td>
+          <td>Trabajadores = clientes</td>
+          <td>Modelo lineal</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- SLIDE 5: Key Features -->
+  <section data-background-gradient="linear-gradient(135deg, #1a1a2e 0%, #16213e 100%)">
+    <h2><i class="fas fa-rocket" style="color: var(--pahoy-accent);"></i> Funcionalidades Principales</h2>
+    <div class="three-columns">
+      <div class="card fragment">
+        <span class="icon-feature"><i class="fas fa-user-circle"></i></span>
+        <h3>Perfiles Duales</h3>
+        <p>Cliente + Talento automatico por cuenta</p>
+      </div>
+      <div class="card fragment">
+        <span class="icon-feature"><i class="fas fa-map-marker-alt"></i></span>
+        <h3>Busqueda Geo</h3>
+        <p>PostGIS con radio de 5km por defecto</p>
+      </div>
+      <div class="card fragment">
+        <span class="icon-feature"><i class="fas fa-file-contract"></i></span>
+        <h3>Contratos</h3>
+        <p>Propuesta &rarr; Activo &rarr; Concluido</p>
+      </div>
+      <div class="card fragment">
+        <span class="icon-feature"><i class="fas fa-comments"></i></span>
+        <h3>Chat</h3>
+        <p>Mensajeria en tiempo real por salas</p>
+      </div>
+      <div class="card fragment">
+        <span class="icon-feature"><i class="fas fa-star-half-alt"></i></span>
+        <h3>Resenias</h3>
+        <p>Sistema cruzado cliente-talento</p>
+      </div>
+      <div class="card fragment">
+        <span class="icon-feature"><i class="fas fa-mobile-alt"></i></span>
+        <h3>APK Android</h3>
+        <p>Experiencia nativa con Capacitor</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 6: Architecture -->
+  <section data-background-gradient="linear-gradient(135deg, #1a1a2e 0%, #16213e 100%)">
+    <h2><i class="fas fa-project-diagram" style="color: var(--pahoy-accent);"></i> Arquitectura</h2>
+    <div class="architecture-diagram">
+<pre style="margin: 0; color: #FCBF49; font-size: 1.1em;">
+              ┌─────────────────────────────────────────┐
+              │        pahoy.online (Route 53)          │
+              └──┬────────────────┬────────────────┬────┘
+                 │                │                │
+            pahoy.online    app.pahoy.online  api.pahoy.online
+                 │                │                │
+                 ▼                ▼                ▼
+          ┌────────────┐  ┌────────────┐  ┌────────────┐
+          │ CloudFront │  │ CloudFront │  │ CloudFront │
+          │ (Landing)  │  │   (SPA)    │  │   (API)    │
+          └─────┬──────┘  └─────┬──────┘  └─────┬──────┘
+                │ OAC           │ OAC           │ HTTP
+                ▼               ▼               ▼
+          ┌────────────┐  ┌────────────┐  ┌────────────┐
+          │  S3 Bucket │  │  S3 Bucket │  │  Elastic   │
+          │  (Landing) │  │  (React)   │  │ Beanstalk  │
+          └────────────┘  └────────────┘  └─────┬──────┘
+                                                │
+                                                ▼
+                                        ┌────────────┐
+                                        │    RDS     │
+                                        │ PostgreSQL │
+                                        │ + PostGIS  │
+                                        └────────────┘
+</pre>
+    </div>
+  </section>
+
+  <!-- SLIDE 7: Tech Stack -->
+  <section data-background-gradient="linear-gradient(135deg, #1a1a2e 0%, #16213e 100%)">
+    <h2><i class="fas fa-layer-group" style="color: var(--pahoy-accent);"></i> Stack Tecnologico</h2>
+    <div class="three-columns">
+      <div class="card">
+        <h3><i class="fas fa-server"></i> Backend</h3>
+        <div>
+          <span class="tech-badge">Python 3.12</span>
+          <span class="tech-badge">Django 6.0</span>
+          <span class="tech-badge">DRF</span>
+          <span class="tech-badge">GeoDjango</span>
+          <span class="tech-badge">PostGIS</span>
+          <span class="tech-badge">PostgreSQL 18</span>
+        </div>
+      </div>
+      <div class="card">
+        <h3><i class="fas fa-palette"></i> Frontend</h3>
+        <div>
+          <span class="tech-badge">React 19</span>
+          <span class="tech-badge">TypeScript 5.9</span>
+          <span class="tech-badge">Vite 8</span>
+          <span class="tech-badge">Tailwind CSS 4</span>
+          <span class="tech-badge">React Aria</span>
+          <span class="tech-badge">Leaflet</span>
+          <span class="tech-badge">Capacitor</span>
+        </div>
+      </div>
+      <div class="card">
+        <h3><i class="fas fa-cloud"></i> Infraestructura</h3>
+        <div>
+          <span class="tech-badge">AWS CDK</span>
+          <span class="tech-badge">CloudFront</span>
+          <span class="tech-badge">S3</span>
+          <span class="tech-badge">Elastic Beanstalk</span>
+          <span class="tech-badge">RDS</span>
+          <span class="tech-badge">Route 53</span>
+          <span class="tech-badge">GitHub Actions</span>
+          <span class="tech-badge">OIDC</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 8: API Overview -->
+  <section data-background-gradient="linear-gradient(135deg, #1a1a2e 0%, #16213e 100%)">
+    <h2><i class="fas fa-plug" style="color: var(--pahoy-accent);"></i> API REST</h2>
+    <div class="stat-grid" style="margin-bottom: 1.2em;">
+      <div class="stat-item">
+        <span class="number">41</span>
+        <span class="label">Rutas</span>
+      </div>
+      <div class="stat-item">
+        <span class="number">42</span>
+        <span class="label">Operaciones</span>
+      </div>
+      <div class="stat-item">
+        <span class="number">8</span>
+        <span class="label">Grupos API</span>
+      </div>
+      <div class="stat-item">
+        <span class="number">3.0</span>
+        <span class="label">OpenAPI Spec</span>
+      </div>
+    </div>
+    <table class="comparison-table" style="font-size: 0.55em;">
+      <thead>
+        <tr><th>Grupo</th><th>Prefijo</th><th>Ops</th><th>Descripcion</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Auth</td><td><code>/api/auth/</code></td><td>11</td><td>Registro, login, tokens, ubicacion</td></tr>
+        <tr><td>Skills</td><td><code>/api/skills/</code></td><td>7</td><td>CRUD + busqueda geoespacial</td></tr>
+        <tr><td>Gigs</td><td><code>/api/gigs/</code></td><td>7</td><td>CRUD + busqueda geoespacial</td></tr>
+        <tr><td>Contracts</td><td><code>/api/contracts/</code></td><td>6</td><td>Ciclo de vida de propuestas</td></tr>
+        <tr><td>Reviews</td><td><code>/api/reviews/</code></td><td>4</td><td>Resenias cruzadas</td></tr>
+        <tr><td>Chat</td><td><code>/api/chat/</code></td><td>4</td><td>Salas + mensajes</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- SLIDE 9: Infrastructure & Deployment -->
+  <section data-background-gradient="linear-gradient(135deg, #1a1a2e 0%, #16213e 100%)">
+    <h2><i class="fas fa-cloud-upload-alt" style="color: var(--pahoy-accent);"></i> Infraestructura y Despliegue</h2>
+    <div class="two-columns">
+      <div>
+        <h3>Ambientes en Vivo</h3>
+        <table class="comparison-table" style="font-size: 0.55em;">
+          <tr><td><code>pahoy.online</code></td><td>Landing</td></tr>
+          <tr><td><code>app.pahoy.online</code></td><td>SPA React</td></tr>
+          <tr><td><code>api.pahoy.online</code></td><td>API Django</td></tr>
+        </table>
+        <br>
+        <h3>CI/CD Pipeline</h3>
+        <ul style="font-size: 0.6em;">
+          <li>GitHub Actions + OIDC</li>
+          <li>Cero credenciales estaticas</li>
+          <li>Deploy automatico en push a main</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Servicios AWS</h3>
+        <div>
+          <span class="tech-badge"><i class="fas fa-box"></i> S3</span>
+          <span class="tech-badge"><i class="fas fa-database"></i> RDS</span>
+          <span class="tech-badge"><i class="fas fa-server"></i> EC2/EB</span>
+          <span class="tech-badge"><i class="fas fa-globe"></i> CloudFront</span>
+          <span class="tech-badge"><i class="fas fa-route"></i> Route 53</span>
+          <span class="tech-badge"><i class="fas fa-key"></i> IAM + OIDC</span>
+          <span class="tech-badge"><i class="fas fa-lock"></i> Secrets Manager</span>
+          <span class="tech-badge"><i class="fas fa-chart-line"></i> CloudWatch</span>
+          <span class="tech-badge"><i class="fas fa-shield-alt"></i> WAFv2</span>
+          <span class="tech-badge"><i class="fas fa-dollar-sign"></i> Budgets + SNS</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 10: Development Strategies -->
+  <section data-background-gradient="linear-gradient(135deg, #1a1a2e 0%, #16213e 100%)">
+    <h2><i class="fas fa-code-branch" style="color: var(--pahoy-accent);"></i> Estrategias de Desarrollo</h2>
+    <div class="two-columns">
+      <div>
+        <div class="card fragment">
+          <h3><i class="fas fa-robot"></i> IA Agentica con Kiro</h3>
+          <p>Desarrollo asistido por IA con el IDE Kiro para maximizar productividad y calidad de codigo</p>
+        </div>
+        <div class="card fragment" style="margin-top: 1em;">
+          <h3><i class="fas fa-infinity"></i> CI/CD sin Credenciales</h3>
+          <p>GitHub Actions + federacion OIDC. Cero secretos estaticos almacenados</p>
+        </div>
+      </div>
+      <div>
+        <div class="card fragment">
+          <h3><i class="fas fa-file-code"></i> Infraestructura como Codigo</h3>
+          <p>AWS CDK en TypeScript para toda la infraestructura reproducible y versionada</p>
+        </div>
+        <div class="card fragment" style="margin-top: 1em;">
+          <h3><i class="fas fa-tasks"></i> Metodologia Agile</h3>
+          <p>Conventional Commits, OpenAPI 3.0, aislamiento de entornos, auto-escalado</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 11: Security -->
+  <section data-background-gradient="linear-gradient(135deg, #1a1a2e 0%, #16213e 100%)">
+    <h2><i class="fas fa-shield-alt" style="color: var(--pahoy-accent);"></i> Seguridad y Compliance</h2>
+    <div class="two-columns">
+      <div>
+        <h3>Proteccion de Datos</h3>
+        <div class="highlight-box">
+          <p style="font-size: 0.65em;">Basado en la <strong style="color: var(--pahoy-primary);">Ley 21.719 de Chile</strong> (la mas estricta de LATAM) = ~90% compliance regional automatico</p>
+        </div>
+        <ul style="font-size: 0.6em;">
+          <li class="fragment">Datos loggeables almacenados cifrados</li>
+          <li class="fragment">Ubicacion = dato personal en todos los territorios</li>
+          <li class="fragment">DPO designado en equipo fundador</li>
+          <li class="fragment">Framework adaptable para expansion internacional</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Seguridad Tecnica</h3>
+        <ul style="font-size: 0.6em;">
+          <li class="fragment">Autenticacion basada en tokens (DRF)</li>
+          <li class="fragment">HTTPS everywhere via CloudFront + ACM</li>
+          <li class="fragment">DB en subnet aislada (sin acceso publico)</li>
+          <li class="fragment">Despliegues OIDC (sin credenciales almacenadas)</li>
+          <li class="fragment">S3 con Origin Access Control (privados por defecto)</li>
+          <li class="fragment">WAFv2 Web ACL en distribucion SPA</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 12: Team -->
+  <section data-background-gradient="linear-gradient(135deg, #1a1a2e 0%, #16213e 100%)">
+    <h2><i class="fas fa-users" style="color: var(--pahoy-accent);"></i> Equipo AKTon</h2>
+    <div class="team-grid">
+      <div class="team-member fragment">
+        <i class="fas fa-user-circle" style="font-size: 2.5em; color: var(--pahoy-primary); margin-bottom: 0.3em;"></i>
+        <span class="name">Fares Akel</span>
+        <span class="role">Frontend & DevOps</span>
+      </div>
+      <div class="team-member fragment">
+        <i class="fas fa-user-circle" style="font-size: 2.5em; color: var(--pahoy-primary); margin-bottom: 0.3em;"></i>
+        <span class="name">Rizcalla Akel</span>
+        <span class="role">Backend & Database</span>
+      </div>
+      <div class="team-member fragment">
+        <i class="fas fa-user-circle" style="font-size: 2.5em; color: var(--pahoy-primary); margin-bottom: 0.3em;"></i>
+        <span class="name">Guillermo Herrera</span>
+        <span class="role">Diseno & Identidad Visual</span>
+      </div>
+      <div class="team-member fragment">
+        <i class="fas fa-user-circle" style="font-size: 2.5em; color: var(--pahoy-primary); margin-bottom: 0.3em;"></i>
+        <span class="name">Aidnes Sanchez</span>
+        <span class="role">QA, Research & Seguridad</span>
+      </div>
+      <div class="team-member fragment">
+        <i class="fas fa-user-circle" style="font-size: 2.5em; color: var(--pahoy-primary); margin-bottom: 0.3em;"></i>
+        <span class="name">Juan Hernandez</span>
+        <span class="role">QA & Research</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 13: Roadmap -->
+  <section data-background-gradient="linear-gradient(135deg, #1a1a2e 0%, #16213e 100%)">
+    <h2><i class="fas fa-road" style="color: var(--pahoy-accent);"></i> Roadmap Futuro</h2>
+    <div class="two-columns">
+      <div>
+        <div class="card fragment">
+          <h3><i class="fas fa-credit-card"></i> Pagos y Facturacion</h3>
+          <p>Sistema de procesamiento de pagos integrado</p>
+        </div>
+        <div class="card fragment" style="margin-top: 0.8em;">
+          <h3><i class="fas fa-id-card"></i> KYC</h3>
+          <p>Verificacion de identidad Know Your Customer</p>
+        </div>
+        <div class="card fragment" style="margin-top: 0.8em;">
+          <h3><i class="fas fa-bolt"></i> WebSocket Chat</h3>
+          <p>Chat en tiempo real basado en WebSocket</p>
+        </div>
+      </div>
+      <div>
+        <div class="card fragment">
+          <h3><i class="fas fa-blog"></i> Blog y Knowledge Base</h3>
+          <p>Contenido educativo y base de conocimiento</p>
+        </div>
+        <div class="card fragment" style="margin-top: 0.8em;">
+          <h3><i class="fas fa-headset"></i> Soporte al Cliente</h3>
+          <p>Portal de atencion y soporte</p>
+        </div>
+        <div class="card fragment" style="margin-top: 0.8em;">
+          <h3><i class="fas fa-globe-americas"></i> Expansion Geografica</h3>
+          <p>Nuevos mercados en Latinoamerica</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 14: Closing -->
+  <section class="slide-title" data-background-gradient="radial-gradient(circle at 50% 50%, rgba(255,107,53,0.2), transparent 70%)">
+    <img src="https://pahoy-images-bucket.s3.us-east-1.amazonaws.com/pahoy-logo.png" alt="Pa'Hoy Logo" class="logo-title">
+    <h1 style="font-size: 2.5em;">Gracias!</h1>
+    <p class="subtitle">Talento Local, Pa' Hoy Mismo</p>
+    <br>
+    <div class="links-section" style="text-align: center;">
+      <a href="https://pahoy.online" target="_blank"><i class="fas fa-globe"></i> pahoy.online</a>
+      <a href="https://app.pahoy.online" target="_blank"><i class="fas fa-mobile-alt"></i> app.pahoy.online</a>
+      <a href="https://api.pahoy.online" target="_blank"><i class="fas fa-server"></i> api.pahoy.online</a>
+    </div>
+    <br>
+    <div class="links-section" style="text-align: center;">
+      <a href="https://github.com/AKTon-PaHoy/pahoy-backend" target="_blank"><i class="fab fa-github"></i> Backend</a>
+      <a href="https://github.com/AKTon-PaHoy/pahoy-front" target="_blank"><i class="fab fa-github"></i> Frontend</a>
+      <a href="https://github.com/AKTon-PaHoy/pahoy-infra" target="_blank"><i class="fab fa-github"></i> Infra</a>
+    </div>
+    <br>
+    <p style="font-size: 0.55em; opacity: 0.6; text-align: center;">Construido con <span style="color: var(--pahoy-primary);">&#9749;</span> y <a href="https://kiro.dev" style="color: var(--pahoy-accent);">Kiro</a> para el AWS + Kiro Hackathon 2026</p>
+    <p style="font-size: 0.5em; opacity: 0.5; text-align: center;">Equipo AKTon</p>
+  </section>
+
+</div><!-- /.slides -->
+</div><!-- /.reveal -->
+
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+<script>
+  Reveal.initialize({
+    hash: true,
+    slideNumber: true,
+    transition: 'slide',
+    transitionSpeed: 'default',
+    backgroundTransition: 'fade',
+    center: true,
+    width: 1280,
+    height: 720,
+    margin: 0.08,
+    controls: true,
+    progress: true,
+    history: true,
+  });
+</script>
+</body>
+</html>
