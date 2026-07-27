@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://pahoy-images-bucket.s3.us-east-1.amazonaws.com/pahoy-logo.png" alt="Pa'Hoy Logo" width="200"/>
+  <img src="https://akton-pahoy.github.io/PaHoy/photos/BigLogo.png" alt="Pa'Hoy Logo" width="200"/>
 </p>
 
 <h1 align="center">Pa'Hoy — Talento Local, Pa' Hoy Mismo</h1>
