@@ -14,6 +14,11 @@
 
 .reveal {
   font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: var(--color-bg-alt);
+}
+
+.reveal .slide-background {
+  background: #FDF9F4 !important;
 }
 
 .reveal .slides section {
@@ -143,7 +148,229 @@
 }
 .link-btn:hover { background: var(--color-primary); color: var(--color-white) !important; }
 
+/* Links */
+.link-btn {
+  display: inline-block;
+  font-size: 0.4em;
+  color: var(--color-primary) !important;
+  text-decoration: none !important;
+  border: 1px solid var(--color-primary);
+  border-radius: 16px;
+  padding: 0.3em 0.7em;
+  margin: 0.15em 0.2em;
+  transition: all 0.2s;
+}
+.link-btn:hover { background: var(--color-primary); color: var(--color-white) !important; }
+
 /* Misc */
 .reveal .slide-number { color: var(--color-primary); font-size: 12px; }
 .reveal .progress span { background: var(--color-primary); }
 .reveal .controls { color: var(--color-primary); }
+
+/* Dark Mode Toggle */
+.theme-toggle {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  z-index: 100;
+  background: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  padding: 0.4em 0.8em;
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--color-text);
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.theme-toggle:hover { transform: scale(1.05); }
+
+/* Controls info */
+.controls-info {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5em;
+  margin-top: 0.6em;
+  font-size: 0.38em;
+  color: var(--color-text-light);
+  text-align: center;
+}
+.controls-info .key {
+  display: inline-block;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  padding: 0.1em 0.4em;
+  font-family: monospace;
+  font-size: 0.9em;
+  margin-right: 0.2em;
+}
+
+/* ===== DARK MODE ===== */
+body.dark-mode {
+  --color-primary: #A31D3F;
+  --color-primary-light: #D4A574;
+  --color-primary-dark: #DECBA0;
+  --color-border: rgba(222, 203, 160, 0.3);
+  --color-icons: #99826E;
+  --color-bg: #A31D3F;
+  --color-bg-alt: #821732;
+  --color-text: #F9FAFB;
+  --color-text-light: #D1D5DB;
+  --color-white: rgba(255,255,255,0.08);
+  --color-dark: #111827;
+}
+
+body.dark-mode .reveal {
+  background: #A31D3F;
+}
+
+body.dark-mode .reveal .slides section {
+  background: transparent;
+}
+
+body.dark-mode .reveal .slide-background {
+  background: #A31D3F !important;
+}
+
+body.dark-mode .reveal h1,
+body.dark-mode .reveal h2 {
+  color: #FFFFFF;
+}
+
+body.dark-mode .reveal h3 {
+  color: var(--color-primary-light);
+}
+
+body.dark-mode .reveal h2 {
+  border-bottom-color: rgba(222, 203, 160, 0.4);
+}
+
+body.dark-mode .reveal p,
+body.dark-mode .reveal li,
+body.dark-mode .reveal td {
+  color: #F3F4F6;
+}
+
+body.dark-mode .reveal strong {
+  color: #DECBA0;
+}
+
+body.dark-mode .reveal ul li::before {
+  color: #DECBA0;
+}
+
+body.dark-mode .subtitle {
+  color: #DECBA0 !important;
+}
+
+body.dark-mode .card {
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(222, 203, 160, 0.25);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+body.dark-mode .card p {
+  color: #D1D5DB;
+}
+
+body.dark-mode .card-icon {
+  color: #DECBA0;
+}
+
+body.dark-mode .callout {
+  background: rgba(0,0,0,0.2);
+  border-left-color: #DECBA0;
+  color: #F3F4F6;
+}
+
+body.dark-mode .badge {
+  background: rgba(0,0,0,0.25);
+  border-color: rgba(222, 203, 160, 0.3);
+  color: #F3F4F6;
+}
+
+body.dark-mode .stat {
+  background: rgba(0,0,0,0.2);
+  border-color: rgba(222, 203, 160, 0.3);
+}
+
+body.dark-mode .stat-num {
+  color: #DECBA0;
+}
+
+body.dark-mode .stat-label {
+  color: #D1D5DB;
+}
+
+body.dark-mode .reveal table th {
+  background: rgba(0,0,0,0.3);
+  color: #DECBA0;
+}
+
+body.dark-mode .reveal table td {
+  border-bottom-color: rgba(222, 203, 160, 0.15);
+  color: #F3F4F6;
+}
+
+body.dark-mode .reveal table code {
+  background: rgba(0,0,0,0.3);
+  color: #DECBA0;
+}
+
+body.dark-mode .arch-diagram {
+  background: rgba(0,0,0,0.4);
+}
+
+body.dark-mode .arch-diagram code {
+  color: #DECBA0;
+}
+
+body.dark-mode .team-card {
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(222, 203, 160, 0.25);
+}
+
+body.dark-mode .team-card strong {
+  color: #FFFFFF;
+}
+
+body.dark-mode .team-card span {
+  color: #D1D5DB;
+}
+
+body.dark-mode .team-photo {
+  border-color: rgba(222, 203, 160, 0.5);
+}
+
+body.dark-mode .link-btn {
+  color: #DECBA0 !important;
+  border-color: #DECBA0;
+}
+
+body.dark-mode .link-btn:hover {
+  background: #DECBA0;
+  color: #A31D3F !important;
+}
+
+body.dark-mode .reveal .slide-number { color: #DECBA0; }
+body.dark-mode .reveal .progress span { background: #DECBA0; }
+body.dark-mode .reveal .controls { color: #DECBA0; }
+
+body.dark-mode .theme-toggle {
+  background: rgba(0,0,0,0.3);
+  border-color: rgba(222, 203, 160, 0.3);
+  color: #F3F4F6;
+}
+
+body.dark-mode .controls-info {
+  color: #D1D5DB;
+}
+
+body.dark-mode .controls-info .key {
+  background: rgba(0,0,0,0.3);
+  border-color: rgba(222, 203, 160, 0.3);
+  color: #DECBA0;
+}

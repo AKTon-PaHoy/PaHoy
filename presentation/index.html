@@ -10,31 +10,40 @@
   <link rel="stylesheet" href="./style.css">
 </head>
 <body>
+<button class="theme-toggle" id="themeToggle" onclick="toggleTheme()">
+  <i class="fas fa-moon" id="themeIcon"></i>
+  <span id="themeLabel">Dark</span>
+</button>
 <div class="reveal">
 <div class="slides">
 
   <!-- SLIDE 1: Title -->
-  <section data-background-color="#FDF9F4">
-    <img src="https://pahoy-images-bucket.s3.us-east-1.amazonaws.com/pahoy-logo.png" alt="Pa'Hoy Logo" style="width: 120px; margin-bottom: 0.3em;">
+  <section>>
+    <img src="./photos/BigLogo.png" alt="Pa'Hoy Logo" style="width: 160px; margin-bottom: 0.2em;">
     <h1>Pa'Hoy</h1>
     <p class="subtitle">Talento Local, Pa' Hoy Mismo</p>
     <p style="font-size: 0.5em; color: var(--color-text-light); margin-top: 0.5em;">Un marketplace geolocalizado que conecta talento local con clientes<br>reconstruyendo comunidades a traves del intercambio economico</p>
-    <div style="margin-top: 1em;">
+    <div style="margin-top: 0.8em;">
       <a href="https://pahoy.online" target="_blank" class="link-btn"><i class="fas fa-globe"></i> Landing</a>
       <a href="https://app.pahoy.online" target="_blank" class="link-btn"><i class="fas fa-mobile-alt"></i> App</a>
       <a href="https://api.pahoy.online" target="_blank" class="link-btn"><i class="fas fa-server"></i> API</a>
     </div>
-    <p style="font-size: 0.35em; color: var(--color-icons); margin-top: 1.5em;">AWS + Kiro Hackathon 2026 — Equipo AKTon</p>
+    <div class="controls-info">
+      <div><span class="key">←</span><span class="key">→</span> Navegar slides</div>
+      <div><span class="key">Space</span> Avanzar</div>
+      <div><span class="key">Esc</span> Vista general</div>
+    </div>
+    <p style="font-size: 0.35em; color: var(--color-icons); margin-top: 0.5em;">AWS + Kiro Hackathon 2026 — Equipo AKTon</p>
   </section>
 
   <!-- SLIDE 2: The Problem -->
-  <section data-background-color="#FDF9F4">
+  <section>>
     <h2><i class="fas fa-exclamation-triangle"></i> El Problema</h2>
     <p style="margin-bottom: 0.6em;">En Latinoamerica, los trabajadores capacitados permanecen <strong>invisibles</strong> para potenciales clientes.</p>
     <div class="two-col">
       <ul>
         <li class="fragment"><strong>Alta friccion</strong> al contratar desconocidos</li>
-        <li class="fragment"><strong>Sin rendicion de cuentas</strong> ni resenias</li>
+        <li class="fragment"><strong>Sin rendicion de cuentas</strong> ni reseñas</li>
         <li class="fragment"><strong>Exclusion</strong> de adultos mayores y vulnerables</li>
         <li class="fragment"><strong>Comunidades fragmentadas</strong> del talento local</li>
       </ul>
@@ -46,7 +55,7 @@
   </section>
 
   <!-- SLIDE 3: Solution -->
-  <section data-background-color="#FDF9F4">
+  <section>>
     <h2><i class="fas fa-lightbulb"></i> Nuestra Solucion</h2>
     <div class="callout" style="text-align: center; margin-bottom: 1em;">
       <strong>Pa'Hoy</strong> es un marketplace confiable basado en ubicacion donde cualquiera puede ofrecer sus habilidades y cualquiera puede encontrarlas cerca.
@@ -64,7 +73,7 @@
   </section>
 
   <!-- SLIDE 4: Differentiators -->
-  <section data-background-color="#FDF9F4">
+  <section>>
     <h2><i class="fas fa-star"></i> Que Nos Diferencia</h2>
     <table>
       <thead>
@@ -74,27 +83,27 @@
         <tr class="fragment"><td><strong>Marketplace dual</strong></td><td>Contrata Y ofrece desde una cuenta</td><td>Unidireccional</td></tr>
         <tr class="fragment"><td><strong>Geolocalizacion</strong></td><td>PostGIS, radio 5km</td><td>Listados por ciudad</td></tr>
         <tr class="fragment"><td><strong>UX inclusiva</strong></td><td>Adultos mayores</td><td>Interfaces complejas</td></tr>
-        <tr class="fragment"><td><strong>Validacion social</strong></td><td>Resenias de comunidad</td><td>Controladas por plataforma</td></tr>
+        <tr class="fragment"><td><strong>Validacion social</strong></td><td>Reseñas de comunidad</td><td>Controladas por plataforma</td></tr>
         <tr class="fragment"><td><strong>Economia circular</strong></td><td>Trabajadores = clientes</td><td>Modelo lineal</td></tr>
       </tbody>
     </table>
   </section>
 
   <!-- SLIDE 5: Key Features -->
-  <section data-background-color="#FDF9F4">
+  <section>>
     <h2><i class="fas fa-rocket"></i> Funcionalidades</h2>
     <div class="grid-3">
       <div class="card fragment"><i class="fas fa-user-circle card-icon"></i><strong>Perfiles Duales</strong><p>Cliente + Talento automatico</p></div>
       <div class="card fragment"><i class="fas fa-map-marker-alt card-icon"></i><strong>Busqueda Geo</strong><p>PostGIS radio 5km</p></div>
       <div class="card fragment"><i class="fas fa-file-contract card-icon"></i><strong>Contratos</strong><p>Propuesta → Activo → Concluido</p></div>
       <div class="card fragment"><i class="fas fa-comments card-icon"></i><strong>Chat</strong><p>Mensajeria en tiempo real</p></div>
-      <div class="card fragment"><i class="fas fa-star-half-alt card-icon"></i><strong>Resenias</strong><p>Sistema cruzado</p></div>
+      <div class="card fragment"><i class="fas fa-star-half-alt card-icon"></i><strong>Reseñas</strong><p>Sistema cruzado</p></div>
       <div class="card fragment"><i class="fas fa-mobile-alt card-icon"></i><strong>APK Android</strong><p>Nativo con Capacitor</p></div>
     </div>
   </section>
 
   <!-- SLIDE 6: Architecture -->
-  <section data-background-color="#FDF9F4">
+  <section>>
     <h2><i class="fas fa-project-diagram"></i> Arquitectura</h2>
     <pre class="arch-diagram"><code>            ┌─────────────────────────────────────────┐
             │        pahoy.online (Route 53)          │
@@ -122,7 +131,7 @@
   </section>
 
   <!-- SLIDE 7: Tech Stack -->
-  <section data-background-color="#FDF9F4">
+  <section>>
     <h2><i class="fas fa-layer-group"></i> Stack Tecnologico</h2>
     <div class="grid-3">
       <div class="card">
@@ -164,7 +173,7 @@
   </section>
 
   <!-- SLIDE 8: API -->
-  <section data-background-color="#FDF9F4">
+  <section>>
     <h2><i class="fas fa-plug"></i> API REST</h2>
     <div class="stat-row">
       <div class="stat"><span class="stat-num">41</span><span class="stat-label">Rutas</span></div>
@@ -179,14 +188,14 @@
         <tr><td>Skills</td><td><code>/api/skills/</code></td><td>7</td><td>CRUD + busqueda geo</td></tr>
         <tr><td>Gigs</td><td><code>/api/gigs/</code></td><td>7</td><td>CRUD + busqueda geo</td></tr>
         <tr><td>Contracts</td><td><code>/api/contracts/</code></td><td>6</td><td>Ciclo de propuestas</td></tr>
-        <tr><td>Reviews</td><td><code>/api/reviews/</code></td><td>4</td><td>Resenias cruzadas</td></tr>
+        <tr><td>Reviews</td><td><code>/api/reviews/</code></td><td>4</td><td>Reseñas cruzadas</td></tr>
         <tr><td>Chat</td><td><code>/api/chat/</code></td><td>4</td><td>Salas + mensajes</td></tr>
       </tbody>
     </table>
   </section>
 
   <!-- SLIDE 9: Infra & Deploy -->
-  <section data-background-color="#FDF9F4">
+  <section>>
     <h2><i class="fas fa-cloud-upload-alt"></i> Infraestructura</h2>
     <div class="two-col">
       <div>
@@ -222,7 +231,7 @@
   </section>
 
   <!-- SLIDE 10: Dev Strategies -->
-  <section data-background-color="#FDF9F4">
+  <section>>
     <h2><i class="fas fa-code-branch"></i> Estrategias de Desarrollo</h2>
     <div class="grid-2">
       <div class="card fragment">
@@ -245,7 +254,7 @@
   </section>
 
   <!-- SLIDE 11: Security -->
-  <section data-background-color="#FDF9F4">
+  <section>>
     <h2><i class="fas fa-shield-alt"></i> Seguridad y Compliance</h2>
     <div class="two-col">
       <div>
@@ -275,7 +284,7 @@
   </section>
 
   <!-- SLIDE 12: Team -->
-  <section data-background-color="#FDF9F4">
+  <section>>
     <h2><i class="fas fa-users"></i> Equipo AKTon</h2>
     <div class="team-grid">
       <div class="team-card fragment">
@@ -307,7 +316,7 @@
   </section>
 
   <!-- SLIDE 13: Roadmap -->
-  <section data-background-color="#FDF9F4">
+  <section>>
     <h2><i class="fas fa-road"></i> Roadmap Futuro</h2>
     <div class="grid-2">
       <div class="card fragment"><h3><i class="fas fa-credit-card"></i> Pagos</h3><p>Sistema de procesamiento de pagos integrado</p></div>
@@ -320,8 +329,8 @@
   </section>
 
   <!-- SLIDE 14: Closing -->
-  <section data-background-color="#FDF9F4">
-    <img src="https://pahoy-images-bucket.s3.us-east-1.amazonaws.com/pahoy-logo.png" alt="Pa'Hoy Logo" style="width: 100px; margin-bottom: 0.3em;">
+  <section>>
+    <img src="./photos/BigLogo.png" alt="Pa'Hoy Logo" style="width: 130px; margin-bottom: 0.3em;">
     <h1 style="margin-bottom: 0.2em;">Gracias!</h1>
     <p class="subtitle">Talento Local, Pa' Hoy Mismo</p>
     <div style="margin-top: 1em;">
@@ -358,6 +367,27 @@
     progress: true,
     history: true,
   });
+
+  function toggleTheme() {
+    const body = document.body;
+    const icon = document.getElementById('themeIcon');
+    const label = document.getElementById('themeLabel');
+    const isDark = body.classList.toggle('dark-mode');
+
+    if (isDark) {
+      icon.className = 'fas fa-sun';
+      label.textContent = 'Light';
+    } else {
+      icon.className = 'fas fa-moon';
+      label.textContent = 'Dark';
+    }
+    localStorage.setItem('pahoy-theme', isDark ? 'dark' : 'light');
+  }
+
+  // Persist theme preference
+  if (localStorage.getItem('pahoy-theme') === 'dark') {
+    toggleTheme();
+  }
 </script>
 </body>
 </html>
