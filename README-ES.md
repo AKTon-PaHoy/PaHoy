@@ -12,6 +12,7 @@
   <a href="https://pahoy.online">Landing</a> •
   <a href="https://app.pahoy.online">App en Vivo</a> •
   <a href="https://api.pahoy.online">API</a> •
+  <a href="https://akton-pahoy.github.io/PaHoy/">Presentación</a> •
   <a href="./README.md">🇺🇸 English</a>
 </p>
 
