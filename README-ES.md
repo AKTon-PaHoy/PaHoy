@@ -282,8 +282,8 @@ Herramientas de diseño: Figma, After Effects, Premiere, Illustrator, Claude Des
 | **Fares Akel** | Desarrollo Frontend y DevOps |
 | **Rizcalla Akel** | Desarrollo Backend y Gestión de Base de Datos |
 | **Guillermo Herrera** | Diseño, Producción e Identidad Visual |
-| **Aidnes Sánchez** | QA, Investigación de Producto y Seguridad |
-| **Juan Hernández** | QA e Investigación de Producto |
+| **Aidnes Sánchez** | QA / Estratega |
+| **Juan Hernández** | InfraSec / Compliance Advisor |
 
 **Nombre del equipo:** AKTon
 

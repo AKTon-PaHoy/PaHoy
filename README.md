@@ -282,8 +282,8 @@ Design tools used: Figma, After Effects, Premiere, Illustrator, Claude Design
 | **Fares Akel** | Frontend Development & DevOps |
 | **Rizcalla Akel** | Backend Development & Database Management |
 | **Guillermo Herrera** | Design, Production & Visual Identity |
-| **Aidnes Sánchez** | QA, Product Research & Security |
-| **Juan Hernández** | QA & Product Research |
+| **Aidnes Sánchez** | QA / Estrategist |
+| **Juan Hernández** | InfraSec / Compliance Advisor |
 
 **Team name:** AKTon
 
