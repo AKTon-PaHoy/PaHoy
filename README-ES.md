@@ -20,12 +20,12 @@
 
 ## Tabla de Contenidos
 
+- [Repositorios](#repositorios)
 - [Sobre el Proyecto](#sobre-el-proyecto)
 - [El Problema que Resolvemos](#el-problema-que-resolvemos)
 - [Qué Nos Diferencia](#qué-nos-diferencia)
 - [Arquitectura](#arquitectura)
 - [Stack Tecnológico](#stack-tecnológico)
-- [Repositorios](#repositorios)
 - [Funcionalidades Principales](#funcionalidades-principales)
 - [Resumen de la API](#resumen-de-la-api)
 - [Infraestructura y Despliegue](#infraestructura-y-despliegue)
@@ -34,6 +34,16 @@
 - [Diseño](#diseño)
 - [Equipo](#equipo)
 - [Roadmap Futuro](#roadmap-futuro)
+
+---
+
+## Repositorios
+
+| Repositorio | Descripción | Enlace |
+|------------|-------------|--------|
+| **pahoy-backend** | API REST Django con descubrimiento geoespacial de talentos | [GitHub](https://github.com/AKTon-PaHoy/pahoy-backend) |
+| **pahoy-front** | SPA mobile-first con React 19 | [GitHub](https://github.com/AKTon-PaHoy/pahoy-front) |
+| **pahoy-infra** | Definiciones de infraestructura AWS CDK | [GitHub](https://github.com/AKTon-PaHoy/pahoy-infra) |
 
 ---
 
@@ -150,16 +160,6 @@ Pa'Hoy resuelve esto creando un **marketplace confiable basado en ubicación** d
 | RDS | Base de datos administrada |
 | Route 53 | DNS |
 | GitHub Actions + OIDC | CI/CD (sin credenciales estáticas) |
-
----
-
-## Repositorios
-
-| Repositorio | Descripción | Enlace |
-|------------|-------------|--------|
-| **pahoy-backend** | API REST Django con descubrimiento geoespacial de talentos | [GitHub](https://github.com/AKTon-PaHoy/pahoy-backend) |
-| **pahoy-front** | SPA mobile-first con React 19 | [GitHub](https://github.com/AKTon-PaHoy/pahoy-front) |
-| **pahoy-infra** | Definiciones de infraestructura AWS CDK | [GitHub](https://github.com/AKTon-PaHoy/pahoy-infra) |
 
 ---
 
