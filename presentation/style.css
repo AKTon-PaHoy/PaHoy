@@ -424,3 +424,10 @@ body.dark-mode .controls-info .key {
   border-color: rgba(222, 203, 160, 0.3);
   color: #DECBA0;
 }
+
+/* Bounce animation for scroll hint */
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-8px); }
+  60% { transform: translateY(-4px); }
+}
